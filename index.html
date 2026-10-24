@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Death Behind the Canvas — جريمة في صالون الفن</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Cinzel:wght@500;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0b0506;--wine:#4a0b16;--crimson:#7a1224;--gold:#cfae62;--gold2:#ecd9a4;--pearl:#f4efe6;--cream:#efe6d2;--muted:#b9a99a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--pearl);font-family:'Cairo',sans-serif;line-height:1.7}
+.cin{font-family:'Cinzel',serif;letter-spacing:.28em;text-transform:uppercase}
+html[lang=ar] .cin{font-family:'Cairo',sans-serif;letter-spacing:0;font-weight:700}
+.script{font-family:'Playfair Display',serif;font-style:italic}
+.wrap{max-width:860px;margin:auto;padding:0 20px}
+.pearls{height:12px;width:min(220px,60%);margin:18px auto;background:radial-gradient(circle 5.5px at 8px 6px,#fff 0,#eadfca 55%,#a89c84 88%,transparent 100%) 0 0/16px 12px repeat-x}
+.lang{position:absolute;top:16px;inset-inline-end:16px;z-index:3;border:1px solid rgba(207,174,98,.5);background:rgba(11,5,6,.6);color:var(--gold2);padding:6px 14px;border-radius:99px;font:600 12px 'Cairo',sans-serif;cursor:pointer}
+.lang:hover{border-color:var(--gold)}
+
+.hero{position:relative;text-align:center;padding:64px 20px 90px;overflow:hidden;background:radial-gradient(ellipse at 50% 0,#6b0f20 0,#2a050c 45%,#0b0506 80%)}
+.hero::before,.hero::after{content:"";position:absolute;top:-30px;width:180px;height:260px;opacity:.16;background:linear-gradient(115deg,transparent 40%,var(--pearl) 41%,transparent 43%),radial-gradient(ellipse at 0 50%,var(--pearl),transparent 70%);border-radius:0 100% 0 100%}
+.hero::before{left:-40px;transform:rotate(18deg)}
+.hero::after{right:-40px;transform:scaleX(-1) rotate(18deg)}
+.crest{width:104px;height:132px;margin:0 auto 22px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 5px var(--ink),inset 0 0 0 6px var(--gold),0 0 30px rgba(207,174,98,.25);font:700 20px 'Cinzel',serif;color:var(--gold2);letter-spacing:.08em}
+.hero .cin{font-size:12px;color:var(--gold)}
+h1{font:500 clamp(34px,8vw,58px)/1.15 'Playfair Display',serif;font-style:italic;margin:10px 0 4px;background:linear-gradient(90deg,var(--gold2),var(--pearl),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.ar-title{font-size:clamp(22px,5vw,32px);font-weight:700}
+.pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}
+.pill{border:1px solid rgba(207,174,98,.5);background:rgba(11,5,6,.55);padding:7px 16px;border-radius:99px;font-size:13px;color:var(--gold2)}
+.cta{display:inline-block;margin-top:30px;padding:13px 34px;border-radius:4px;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#2a050c;font-weight:700;text-decoration:none}
+
+.welcome{background:linear-gradient(var(--ink),var(--wine) 60%,var(--ink));text-align:center;padding:60px 0}
+.welcome h2{font-size:15px;color:var(--gold)}
+.welcome p{max-width:560px;margin:14px auto 0;color:#e6d8cc;font-size:17px}
+
+.info{background:var(--cream);color:#3a1a14;padding:38px 0}
+.info .grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.info .col{text-align:center;padding:6px 18px;border-inline-start:1px solid rgba(58,26,20,.25)}
+.info .col:first-child{border:0}
+.info .cin{font-size:11px;color:#8a6a2c;margin-bottom:6px;display:block}
+.info b{display:block;font-size:17px}
+.info small{color:#6d4a3d}
+
+.dress{background:#000;text-align:center;padding:42px 20px}
+.dress .cin{font-size:12px;color:var(--gold)}
+.sw{display:flex;gap:16px;justify-content:center;margin:18px 0 10px}
+.sw i{width:44px;height:44px;border-radius:50%;border:1px solid rgba(207,174,98,.6)}
+.dress p{font-size:13px;color:var(--muted)}
+
+.reg{padding:70px 0;background:radial-gradient(ellipse at 50% 100%,#3a0811,var(--ink) 70%)}
+.sec-h{text-align:center;margin-bottom:26px}
+.sec-h .cin{font-size:12px;color:var(--gold)}
+.sec-h h2{font-size:28px;font-weight:700}
+.card{background:linear-gradient(150deg,rgba(74,11,22,.85),rgba(11,5,6,.95));border:1px solid rgba(207,174,98,.45);border-radius:14px;padding:28px;box-shadow:0 20px 50px rgba(0,0,0,.6)}
+.steps{display:flex;gap:8px;margin-bottom:22px}
+.steps span{flex:1;height:3px;border-radius:3px;background:rgba(207,174,98,.2)}
+.steps span.on{background:var(--gold)}
+label{display:block;font-size:12px;color:var(--gold);margin:14px 0 4px;font-weight:600}
+input{width:100%;padding:12px 14px;border-radius:8px;border:1px solid rgba(207,174,98,.4);background:rgba(11,5,6,.8);color:var(--pearl);font:inherit}
+input:focus{outline:none;border-color:var(--gold)}
+html[dir=rtl] #ph{text-align:right}
+html[dir=ltr] #ph{text-align:left}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px;max-height:300px;overflow-y:auto;padding:2px}
+#gd{max-height:none}
+.opt{border:1px solid rgba(207,174,98,.3);background:rgba(43,5,11,.7);border-radius:8px;padding:11px 13px;font-size:13px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px;transition:.25s}
+.opt:hover:not(.lock){border-color:var(--gold);transform:translateY(-2px)}
+.opt.sel{border-color:var(--gold2);background:linear-gradient(135deg,var(--crimson),var(--wine));box-shadow:0 0 14px rgba(207,174,98,.3)}
+.opt.lock{opacity:.4;cursor:not-allowed;filter:grayscale(.9)}
+.opt.lock .nm{text-decoration:line-through}
+.opt em{font-style:normal;font-size:10px;border:1px solid #777;color:#aaa;padding:1px 6px;border-radius:4px;white-space:nowrap}
+.opt small{display:block;font-size:10px;color:var(--muted)}
+.opt.sel small{color:var(--gold2)}
+.nav{display:flex;justify-content:space-between;margin-top:24px}
+.btn{padding:11px 24px;border-radius:6px;border:1px solid rgba(207,174,98,.5);background:none;color:var(--gold2);font:inherit;cursor:pointer}
+.btn.pri{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#2a050c;font-weight:700;border:0}
+.btn:disabled{opacity:.6;cursor:wait}
+.note{font-size:12px;color:var(--muted);text-align:center;margin-top:14px}
+.err{color:#ff8a8a;font-size:12px;margin-top:6px;display:none}
+.err.show{display:block}
+.step{display:none}.step.on{display:block}
+.done{text-align:center}
+.done h3{font-size:24px;color:var(--gold2)}
+.dos{max-width:420px;margin:22px auto 0;border:1px solid var(--gold);border-radius:12px;padding:22px;background:linear-gradient(160deg,var(--wine),var(--ink));text-align:start}
+.dos .row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid rgba(207,174,98,.2);font-size:14px}
+.dos .row span:first-child{color:var(--muted);font-size:12px}
+.dos .row b{color:var(--gold2)}
+
+.sch{padding:70px 0;background:linear-gradient(var(--ink),var(--wine))}
+.edge{border:1px solid rgba(207,174,98,.45);border-radius:12px;padding:20px;text-align:center;background:rgba(11,5,6,.55)}
+.edge time{font:700 28px 'Cinzel',serif;color:var(--gold2);display:block;direction:ltr}
+.edge p{margin-top:4px;font-size:14px;color:#e6d8cc}
+.mid-t{text-align:center;color:var(--gold);font-size:13px;margin-top:6px}
+.mid{margin:14px 0 4px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.act{border:1px solid rgba(207,174,98,.3);border-radius:10px;padding:16px 10px;text-align:center;background:rgba(43,5,11,.7);font-size:14px}
+.act i{font-style:normal;display:block;font-size:22px;color:var(--gold);margin-bottom:6px}
+footer{text-align:center;padding:34px 20px;font-size:12px;color:var(--muted);border-top:1px solid rgba(207,174,98,.25)}
+@media(max-width:640px){.info .grid{grid-template-columns:1fr;gap:18px}.info .col{border:0}.opts{grid-template-columns:1fr}.mid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <button class="lang" id="lb" onclick="toggleLang()">English</button>
+  <div class="crest">1930</div>
+  <p class="cin" data-i="upper"></p>
+  <h1>Death Behind the Canvas</h1>
+  <p class="ar-title" data-i="title2"></p>
+  <div class="pearls"></div>
+  <div class="pills">
+    <span class="pill" data-i="date"></span>
+    <span class="pill" data-i="time"></span>
+    <span class="pill" data-i="place"></span>
+  </div>
+  <a class="cta" href="#reg" data-i="cta"></a>
+</header>
+
+<section class="welcome">
+  <div class="wrap">
+    <h2 class="cin" data-i="wel"></h2>
+    <div class="pearls"></div>
+    <p data-i="welp"></p>
+  </div>
+</section>
+
+<section class="info">
+  <div class="wrap grid">
+    <div class="col"><span class="cin" data-i="i1h"></span><b data-i="i1t"></b><small data-i="i1s"></small></div>
+    <div class="col"><span class="cin" data-i="i2h"></span><b data-i="i2t"></b><small data-i="i2s"></small></div>
+    <div class="col"><span class="cin" data-i="i3h"></span><b data-i="i3t"></b><small data-i="i3s"></small></div>
+  </div>
+</section>
+
+<section class="dress">
+  <p class="cin" data-i="dch"></p>
+  <div class="sw"><i style="background:#7a1224"></i><i style="background:#cfae62"></i><i style="background:#f4efe6"></i><i style="background:#0b0506"></i><i style="background:#4a0b16"></i></div>
+  <p data-i="dct"></p>
+</section>
+
+<section class="reg" id="reg">
+  <div class="wrap">
+    <div class="sec-h"><h2 data-i="rt"></h2></div>
+    <div class="card">
+      <div class="steps" id="steps"><span class="on"></span><span></span><span></span></div>
+
+      <div class="step on" id="s1">
+        <label data-i="l1"></label><input id="nm" autocomplete="name">
+        <p class="err" id="e1" data-i="e1"></p>
+        <label data-i="l2"></label><input id="ph" type="tel" dir="ltr" placeholder="01xxxxxxxxx" autocomplete="tel">
+        <p class="err" id="e2" data-i="e2"></p>
+        <div class="nav"><span></span><button class="btn pri" onclick="nxt(1)" data-i="next"></button></div>
+      </div>
+
+      <div class="step" id="s2">
+        <div class="opts" id="gd"></div>
+        <p class="err" id="e3" data-i="e3"></p>
+        <div class="nav"><button class="btn" onclick="show(1)" data-i="back"></button><button class="btn pri" onclick="nxt(2)" data-i="next"></button></div>
+      </div>
+
+      <div class="step" id="s3">
+        <label><span data-i="cl"></span> <span id="cc" style="color:var(--muted);font-weight:400"></span></label>
+        <div class="opts" id="cg"></div>
+        <p class="err" id="e4" data-i="e4"></p>
+        <label><span data-i="jl"></span> <span id="jc" style="color:var(--muted);font-weight:400"></span></label>
+        <div class="opts" id="jg"></div>
+        <p class="err" id="e5" data-i="e5"></p>
+        <p class="err" id="e6"></p>
+        <div class="nav"><button class="btn" onclick="show(2)" data-i="back"></button><button class="btn pri" id="sb" onclick="send()" data-i="confirm"></button></div>
+      </div>
+
+      <div class="done" id="ok" style="display:none">
+        <h3 data-i="okt"></h3>
+        <p class="note" data-i="oks"></p>
+        <div class="dos">
+          <div class="row"><span data-i="dn"></span><b id="d1"></b></div>
+          <div class="row"><span data-i="dp"></span><b id="d2" dir="ltr"></b></div>
+          <div class="row"><span data-i="dc"></span><b id="d3"></b></div>
+          <div class="row"><span data-i="dj"></span><b id="d4"></b></div>
+          <div class="row"><span data-i="dd"></span><b data-i="ddv"></b></div>
+        </div>
+        <p class="note" data-i="dnote"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sch">
+  <div class="wrap">
+    <div class="sec-h"><p class="cin" data-i="sh"></p><h2 data-i="st"></h2></div>
+    <div class="edge"><time>5:00 PM</time><p data-i="s1d"></p></div>
+    <div class="pearls"></div>
+    <p class="mid-t" data-i="mt"></p>
+    <div class="mid">
+      <div class="act"><i>✉</i><span data-i="a1"></span></div>
+      <div class="act"><i>⚿</i><span data-i="a2"></span></div>
+      <div class="act"><i>▣</i><span data-i="a3"></span></div>
+      <div class="act"><i>✎</i><span data-i="a4"></span></div>
+      <div class="act"><i>☕</i><span data-i="a5"></span></div>
+      <div class="act"><i>❖</i><span data-i="a6"></span></div>
+    </div>
+    <div class="pearls"></div>
+    <div class="edge"><time>10:00 PM</time><p data-i="s3d"></p></div>
+  </div>
+</section>
+
+<footer>
+  <div class="pearls"></div>
+  <p class="script" style="font-size:16px;color:var(--gold2)">Death Behind the Canvas</p>
+  <p data-i="foot"></p>
+</footer>
+
+<script>
+// ⚙️ الصقي هنا رابط الـ Web App (اللي بينتهي بـ /exec)
+const URL_ = 'https://script.google.com/macros/s/AKfycbxTx6bMhtWQ-1Olu33eeYKXmyp1LnO038Jnxz3d-AdkdjvIxFSmM9JCNdGzBi4OrhPN/exec';
+const LOCK_JOBS = true; // لازم يطابق Code.gs
+
+const F=[['f1','شويكار هانم','Shwikar Hanem'],['f2','ثريا هانم صبري','Soraya Hanem Sabry'],['f3','مدام روز يوسف','Madame Rose Youssef'],['f4','كاميليا رستم','Camellia Rostom'],['f5','بديعة مصابني','Badiaa Masabni'],['f6','صوفيا الغرباوي','Sophia El-Gharbawy'],['f7','زوزو ماضي','Zouzou Mady'],['f8','عايدة الصاوي','Aida El-Sawy'],['f9','مودمازيل إيلينا','Modmazel Elena'],['f10','ماري عساف','Marie Assaf'],['f11','سيلين هانم','Celine Hanem'],['f12','دوريس الجوهر','Doris El-Gawhar'],['f13','عفاف المهدي','Afaf El-Mahdy'],['f14','نازلي هانم','Nazli Hanem']];
+const M=[['m1','عدلي باشا الغرباوي','Adly Basha El-Gharbawy'],['m2','إسماعيل باشا شريف','Ismail Basha Sherif'],['m3','توفيق بك الألفي','Tewfik Bey El-Alfy'],['m4','جلال بك رستم','Galal Bey Rostom'],['m5','سليمان العدلي','Soliman Al-Aadly'],['m6','رشاد بك الصاوي','Rashad Bey El-Sawy'],['m7','حافظ باشا صبري','Hafez Basha Sabry'],['m8','سامي ذو الفقار','Sami Zulfikar'],['m9','الدكتور فاروق الجوهري','Dr. Farouk El-Gawhary'],['m10','البكباشي مراد رفقي','Bikbashi Murad Refky'],['m11','الدكتور شوقي الحسيني','Dr. Shawky El-Husseini'],['m12','يوسف بك العطار','Youssef Bey El-Attar'],['m13','الكونت ديمتري','Count Dimitri'],['m14','فهمي بك الكاشف','Fahmy Bey El-Kashif']];
+// [id, ar مذكر, ar مؤنث, en]
+const J=[['j1','المستثمر المالي','المستثمرة المالية','Financial Investor'],['j2','خبير التثمين العقاري والآثار','خبيرة التثمين العقاري والآثار','Real Estate & Antiquities Appraiser'],['j3','المصرفي (البنكي)','المصرفية (البنكية)','Banker'],['j4','المحامي الخاص للعائلة','المحامية الخاصة للعائلة','Family Attorney'],['j5','الوسيط التجاري','الوسيطة التجارية','Commercial Broker'],['j6','الرسام المشهور','الرسامة المشهورة','Famous Painter'],['j7','الناقد الفني','الناقدة الفنية','Art Critic'],['j8','الأديب','الأديبة','Author / Man of Letters'],['j9','مقتني اللوحات الفاخرة','مقتنية اللوحات الفاخرة','Luxury Art Collector'],['j10','مصمم الديكور الخاص','مصممة الديكور الخاصة','Interior Designer'],['j11','الصحفي','الصحفية','Journalist'],['j12','الدبلوماسي (مسؤول حكومي)','الدبلوماسية (مسؤولة حكومية)','Diplomat / Government Official'],['j13','صديق الطفولة المقرب للمضيفة','صديقة الطفولة المقربة للمضيفة','Hostess’s Close Childhood Friend'],['j14','الباحث عن إرث عائلي','الباحثة عن إرث عائلي','Seeker of Family Inheritance']];
+
+const D={
+ar:{upper:'ليلة جريمة غامضة حصرية',title2:'جريمة في صالون الفن',date:'الجمعة ٣٠ أكتوبر',time:'٥:٠٠ م – ١٠:٠٠ م',place:'استوديو كوِّن',cta:'اختيار شخصيتك',
+wel:'أهلاً بكم',welp:'هل تجرؤون على دخول صالون يعج بالأسرار واللوحات الغامضة؟ جمعتهم ليشهدوا إبداعات الفنانين.. لكن المضيفة لم تشهد نهاية الليلة!',
+i1h:'الموعد',i1t:'الجمعة ٣٠ أكتوبر',i1s:'من ٥:٠٠ م إلى ١٠:٠٠ م',i2h:'المكان',i2t:'استوديو كوِّن',i2s:'الشيخ زايد',i3h:'الضيافة',i3t:'مشروبات وسناكس',i3s:'مجانًا طوال السهرة',
+dch:'كود اللبس',dct:'ثلاثينيات أنيقة: قطيفة، لؤلؤ، ريش، وقفازات',
+rt:'التسجيل في دفتر الصالون',l1:'الاسم كامل',l2:'رقم التليفون',e1:'برجاء كتابة الاسم كاملاً.',e2:'برجاء إدخال رقم هاتف صحيح.',next:'التالي',back:'السابق',
+gf:'أنثى',gfs:'هوانم وسيدات الثلاثينيات',gm:'ذكر',gms:'الباشوات والبيكوات',e3:'يرجى اختيار الجنس للمتابعة.',
+cl:'١. الشخصية',jl:'٢. الوظيفة',e4:'يرجى اختيار شخصية متاحة.',e5:'يرجى اختيار وظيفة.',confirm:'تأكيد الحجز وقفل الشخصية',
+avail:'متاحة',taken:'محجوزة',etaken:'للأسف حد سبقك واختار الشخصية أو الوظيفة دي. يرجى اختيار غيرها من المتاحة.',enet:'حدثت مشكلة في الاتصال، برجاء المحاولة مرة أخرى بعد قليل.',enourl:'رابط Google Sheet لسه متحطش في الكود.',
+okt:'تم تأكيد حجز شخصيتك!',oks:'اتقفل اختيارك واتسجل في دفتر الصالون.',dn:'الاسم',dp:'رقم التليفون',dc:'الشخصية',dj:'الوظيفة',dd:'الموعد',ddv:'الجمعة ٣٠ أكتوبر · ٥:٠٠ م',
+dnote:'برجاء الاحتفاظ بلقطة شاشة لهذه البطاقة، واستلام ملفك السري عند الاستقبال الساعة ٥:٠٠ م.',
+sh:'ليلتنا',st:'برنامج السهرة',s1d:'يُرفع الستار في تمام الساعة ٥:٠٠ مساءً بالظبط، فنتشوق لرؤيتكم في الموعد كي لا يفوتكم أي سر من أسرار الليلة!',mt:'ماذا ينتظركم في هذه الليلة الاستثنائية',
+a1:'ملفات الشخصيات',a2:'ميداليات مفاتيح مخصصة',a3:'صور مطبوعة',a4:'ورشة رسم',a5:'مشروبات ساخنة وباردة مجانًا',a6:'فينجر فود وسناكس مجانًا',
+s3d:'تنتهي السهرة في تمام الساعة ١٠:٠٠ مساءً.',foot:'ليلة جريمة غامضة · استوديو كوِّن'},
+en:{upper:'An Exclusive Murder Mystery Night',title2:'Murder at the Art Salon',date:'Friday, Oct 30',time:'5:00 PM – 10:00 PM',place:'Kawen Studio',cta:'Book Your Character',
+wel:'Welcome',welp:'Do you dare step into a salon shrouded in secrets and enigmatic paintings? They gathered to admire artistic brilliance… but the hostess didn’t live to see the end of the night!',
+i1h:'When',i1t:'Friday, Oct 30',i1s:'5:00 PM to 10:00 PM',i2h:'Where',i2t:'Kawen Studio',i2s:'Sheikh Zayed',i3h:'Treats',i3t:'Drinks & Snacks',i3s:'Free all night',
+dch:'Dress Code',dct:'Elegant 1930s: velvet, pearls, feathers and gloves',
+rt:'Sign the Salon’s Guest Book',l1:'Full Name',l2:'Phone Number',e1:'Please enter your full name.',e2:'Please enter a valid phone number.',next:'Next',back:'Back',
+gf:'Female',gfs:'High-society ladies of the 1930s',gm:'Male',gms:'Pashas, Beys and gentlemen',e3:'Please select a gender to continue.',
+cl:'1. Character',jl:'2. Job Title',e4:'Please select an available character.',e5:'Please select a job title.',confirm:'Confirm & Lock Persona',
+avail:'available',taken:'Taken',etaken:'Sorry, someone just booked that character or job. Please pick another available one.',enet:'Connection problem, please try again in a moment.',enourl:'The Google Sheet URL hasn’t been set in the code yet.',
+okt:'Your persona is confirmed!',oks:'Your choice is locked and registered in the salon’s guest book.',dn:'Name',dp:'Phone Number',dc:'Character',dj:'Job',dd:'Date',ddv:'Friday, Oct 30 · 5:00 PM',
+dnote:'Please take a screenshot of this card and collect your secret file at reception at 5:00 PM.',
+sh:'Our Night',st:'The Evening',s1d:'The curtain rises at exactly 5:00 PM sharp. We can’t wait to see you there on time, so you don’t miss a single secret of the night!',mt:'What Will Be Included',
+a1:'Character files',a2:'Personalized keychains',a3:'Printed pictures',a4:'Painting workshop',a5:'Free soft & hot drinks',a6:'Free finger food & snacks',
+s3d:'The evening ends at 10:00 PM.',foot:'Murder Mystery Night · Kawen Studio'}
+};
+
+let lang='ar',gender=null,ch=null,jb=null,tc=[],tj=[],done=false;
+const $=id=>document.getElementById(id);
+const t=k=>D[lang][k];
+const ok_=()=>URL_&&URL_.indexOf('PASTE_')!==0;
+const jobTxt=j=>lang==='en'?j[3]:(gender==='female'?j[2]:j[1]);
+const chTxt=c=>lang==='en'?c[2]:c[1];
+
+function applyLang(){
+  document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  document.querySelectorAll('[data-i]').forEach(e=>{e.textContent=t(e.dataset.i)});
+  $('lb').textContent=lang==='ar'?'English':'العربية';
+  document.title='Death Behind the Canvas — '+t('title2');
+  drawGender();if(gender){renderC();renderJ()}
+  if(done)fillDos();
+}
+function toggleLang(){lang=lang==='ar'?'en':'ar';applyLang()}
+
+function show(n){
+  [1,2,3].forEach(i=>{$('s'+i).classList.toggle('on',i===n);$('steps').children[i-1].classList.toggle('on',i<=n)});
+  if(n===3)loadTaken();
+}
+function err(id,on){$(id).classList.toggle('show',on)}
+
+function nxt(from){
+  if(from===1){
+    const a=$('nm').value.trim().length>=3,b=/^[0-9+\s-]{8,}$/.test($('ph').value.trim());
+    err('e1',!a);err('e2',!b);if(a&&b)show(2);
+  }else{
+    err('e3',!gender);if(!gender)return;
+    renderC();renderJ();show(3);
+  }
+}
+
+function drawGender(){
+  const g=$('gd');g.innerHTML='';
+  [['female','gf','gfs'],['male','gm','gms']].forEach(x=>{
+    g.appendChild(card(t(x[1]),t(x[2]),false,gender===x[0],()=>{gender=x[0];ch=null;jb=null;err('e3',false);drawGender()}));
+  });
+}
+
+function card(label,sub,taken,sel,click){
+  const d=document.createElement('div');
+  d.className='opt'+(taken?' lock':'')+(sel?' sel':'');
+  const s=document.createElement('span');
+  const n=document.createElement('span');n.className='nm';n.textContent=label;s.appendChild(n);
+  if(sub){const sm=document.createElement('small');sm.textContent=sub;s.appendChild(sm)}
+  d.appendChild(s);
+  if(taken){const e=document.createElement('em');e.textContent=t('taken');d.appendChild(e)}
+  else d.onclick=click;
+  return d;
+}
+
+function renderC(){
+  const list=gender==='female'?F:M,g=$('cg');g.innerHTML='';
+  $('cc').textContent='('+list.filter(x=>!tc.includes(x[0])).length+' '+t('avail')+')';
+  list.forEach(x=>g.appendChild(card(chTxt(x),lang==='en'?x[1]:x[2],tc.includes(x[0]),ch&&ch[0]===x[0],()=>{ch=x;err('e4',false);renderC()})));
+}
+function renderJ(){
+  const g=$('jg');g.innerHTML='';
+  $('jc').textContent='('+J.filter(x=>!tj.includes(x[0])).length+' '+t('avail')+')';
+  J.forEach(x=>g.appendChild(card(jobTxt(x),'',tj.includes(x[0]),jb&&jb[0]===x[0],()=>{jb=x;err('e5',false);renderJ()})));
+}
+
+async function loadTaken(){
+  if(!ok_())return;
+  try{
+    const r=await fetch(URL_+'?t='+Date.now()),d=await r.json();
+    tc=d.characters||[];tj=LOCK_JOBS?(d.jobs||[]):[];
+    if(ch&&tc.includes(ch[0]))ch=null;
+    if(jb&&tj.includes(jb[0]))jb=null;
+    if(gender){renderC();renderJ()}
+  }catch(e){console.error(e)}
+}
+
+function fillDos(){
+  $('d1').textContent=$('nm').value.trim();$('d2').textContent=$('ph').value.trim();
+  $('d3').textContent=chTxt(ch);$('d4').textContent=jobTxt(jb);
+}
+
+async function send(){
+  err('e6',false);
+  err('e4',!ch);err('e5',!jb);if(!ch||!jb)return;
+  if(!ok_()){$('e6').textContent=t('enourl');err('e6',true);return}
+  const b=$('sb');b.disabled=true;
+  try{
+    // الشيت بيستقبل دايمًا بالعربي
+    const r=await fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({
+      name:$('nm').value.trim(),phone:$('ph').value.trim(),gender:gender==='female'?'أنثى':'ذكر',
+      character:ch[1],characterId:ch[0],job:gender==='female'?jb[2]:jb[1],jobId:jb[0]})});
+    const d=await r.json();
+    if(d.status==='taken'){await loadTaken();$('e6').textContent=t('etaken');err('e6',true);return}
+    if(d.status!=='ok')throw new Error(d.message);
+    done=true;fillDos();
+    [1,2,3].forEach(i=>$('s'+i).classList.remove('on'));$('steps').style.display='none';$('ok').style.display='block';
+  }catch(e){console.error(e);$('e6').textContent=t('enet');err('e6',true)}
+  finally{b.disabled=false}
+}
+
+applyLang();loadTaken();
+</script>
+</body>
+</html>
